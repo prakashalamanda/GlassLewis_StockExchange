@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassLewis_StockExchange", "GlassLewis_StockExchange\GlassLewis_StockExchange.csproj", "{A603D473-9ADF-47BC-9794-3E8FB4C7B750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassLewis_StockExchange.Tests", "GlassLewis_StockExchange.Tests\GlassLewis_StockExchange.Tests.csproj", "{68E5E901-274C-4DA9-8D01-B0E0DE49F86A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{921D63F6-B757-4F70-AB98-F79455214FE6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A603D473-9ADF-47BC-9794-3E8FB4C7B750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A603D473-9ADF-47BC-9794-3E8FB4C7B750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A603D473-9ADF-47BC-9794-3E8FB4C7B750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A603D473-9ADF-47BC-9794-3E8FB4C7B750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E5E901-274C-4DA9-8D01-B0E0DE49F86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E5E901-274C-4DA9-8D01-B0E0DE49F86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E5E901-274C-4DA9-8D01-B0E0DE49F86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E5E901-274C-4DA9-8D01-B0E0DE49F86A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4C3A7A0-FBC2-4192-8032-233D8407DF48}
+	EndGlobalSection
+EndGlobal
