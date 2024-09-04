@@ -114,12 +114,13 @@
     </div>
 
     <script>
-        document.getElementById('loadData').addEventListener('click', function() {
+        document.getElementById('loadData').addEventListener('click', function () {
             const jwtToken = document.getElementById('jwtToken').value.trim(); // Get the token from the textarea
             const apiUrl = "https://localhost:7068/api/Company/GetCompanyCollection";
 
             if (!jwtToken) {
-                document.getElementById('response').innerText = 'Error: JWT Token is required.';
+                document.getElementById('response').innerText = 'Error: Please provide the Jwt token.';
+                document.getElementById('gridContainer').innerHTML = '';
                 return;
             }
 
@@ -130,37 +131,39 @@
                     'Authorization': `Bearer ${jwtToken}`
                 }
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const gridContainer = document.getElementById('gridContainer');
-                gridContainer.innerHTML = ''; // Clear any existing content
-                gridContainer.style.display = 'grid'; // Show the grid
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error in retrieving the Company collection. Please make sure the Jwt token is correct.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('response').innerText = '';
+                    const gridContainer = document.getElementById('gridContainer');
+                    gridContainer.innerHTML = ''; // Clear any existing content
+                    gridContainer.style.display = 'grid'; // Show the grid
 
-                data.forEach(item => {
-                    const gridItem = document.createElement('div');
-                    gridItem.className = 'grid-item';
+                    data.forEach(item => {
+                        const gridItem = document.createElement('div');
+                        gridItem.className = 'grid-item';
 
-                    // Build the inner HTML conditionally
-                    let gridContent = `<h3>${item.name || 'N/A'}</h3>`;
-                    if (item.id) gridContent += `<p><strong>ID:</strong> ${item.id}</p>`;
-                    if (item.ticker) gridContent += `<p><strong>Ticker:</strong> ${item.ticker}</p>`;
-                    if (item.exchange) gridContent += `<p><strong>Exchange:</strong> ${item.exchange}</p>`;
-					if (item.isin) gridContent += `<p><strong>ISIN:</strong> ${item.isin}</p>`;
-					if (item.websiteUrl) gridContent += `<p><strong>Website Url:</strong> ${item.websiteUrl}</p>`;
+                        // Build the inner HTML conditionally
+                        let gridContent = `<h3>${item.name || 'N/A'}</h3>`;
+                        if (item.id) gridContent += `<p><strong>ID:</strong> ${item.id}</p>`;
+                        if (item.ticker) gridContent += `<p><strong>Ticker:</strong> ${item.ticker}</p>`;
+                        if (item.exchange) gridContent += `<p><strong>Exchange:</strong> ${item.exchange}</p>`;
+                        if (item.isin) gridContent += `<p><strong>ISIN:</strong> ${item.isin}</p>`;
+                        if (item.websiteUrl) gridContent += `<p><strong>Website Url:</strong> ${item.websiteUrl}</p>`;
 
-                    gridItem.innerHTML = gridContent;
+                        gridItem.innerHTML = gridContent;
 
-                    gridContainer.appendChild(gridItem);
+                        gridContainer.appendChild(gridItem);
+                    });
+                })
+                .catch(error => {
+                    document.getElementById('response').innerText = error.message;
+                    document.getElementById('gridContainer').innerHTML = '';
                 });
-            })
-            .catch(error => {
-                document.getElementById('response').innerText = 'Error: ' + error.message;
-            });
         });
     </script>
 </body>

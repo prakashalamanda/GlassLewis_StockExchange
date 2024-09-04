@@ -6,18 +6,17 @@ public class Company
 {
     public int Id { get; set; }
 
-    [Required, MaxLength(100)]
-    public string? Name { get; set; }
+    [MaxLength(100)]
+    public required string Name { get; set; }
 
-    [Required, MaxLength(10)]   
-    public string? Ticker { get; set; }
+    [MaxLength(10)]   
+    public required string Ticker { get; set; }
 
-    [Required, MaxLength(100)]
-    public string? Exchange { get; set; }
+    [MaxLength(100)]
+    public required string Exchange { get; set; }
 
-    [Required, MaxLength(12)]
     [RegularExpression(RegularExpressionConstants.IsinPatternFixedLength, ErrorMessage = MessageConstants.InvalidIsinFormat)]
-    public string? Isin { get; set; }
+    public required string Isin { get; set; }
 
     [Url, MaxLength(500)]
     public string? WebsiteUrl { get; set; }
