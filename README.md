@@ -5,6 +5,7 @@
 This project is built using ASP.NET Core Web API designed for managing company records. The API offers the following functionalities:
 
 - Swagger URL - https://localhost:7068/swagger/index.html
+- UI URL - https://localhost:7068/pages/index.html
   
 - Implemented Jwt Authentication for authentication purpose
 	- Register User (https://localhost:7068/authorization - POST)
@@ -66,12 +67,11 @@ This project is built using ASP.NET Core Web API designed for managing company r
 
 - This setup should guide you through running and testing the Company API effectively.
 
-<u><h3>Access the API from UI Dashboard:</h3></u>
+<u><h3>Access the GetCompanyCollection API from UI:</h3></u>
 
-- Navigate to File Explorer to the following path - GlassLewis_StockExchange\UI\CompanyDashboard.html
-- Open the Html file
+- Navigate to the url - https://localhost:7068/pages/index.html
 - Paste the Bearer token generated from the Swagger page in the text area
-- Click Company details
+- Click on 'Get Company details' button to retrieve the company collection
 
 <b>Note - We can also test this from API tools like Postman etc.,</b>
 
