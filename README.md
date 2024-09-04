@@ -75,7 +75,5 @@ This project is built using ASP.NET Core Web API designed for managing company r
 - Paste the Bearer token generated from the Swagger page in the text area
 - Click on 'Get Company details' button to retrieve the company collection
 
-<b>Note - We can also test this from API tools like Postman etc.,</b>
-
-Thank you
+<b>Note - We can also test this from API tools like Postman etc.,</b> Thank you!
 
