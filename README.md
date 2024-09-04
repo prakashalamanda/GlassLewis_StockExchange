@@ -21,9 +21,8 @@ This project is built using ASP.NET Core Web API designed for managing company r
 <u><h3>Steps to Run the Project:</u></h3>
 - Extract the GlassLewis_StockExchange-main folder. This will have another folder GlassLewis_StockExchange which has the following contents:
  	- GlassLewis_StockExchange.sln: Solution file.
-	- GlassLewis_StockExchange folder: Contains the main project files.
+	- GlassLewis_StockExchange folder: Contains the main project files and static UI page.
 	- GlassLewis_StockExchange.Tests folder: Contains the unit testing project.
-	- UI folder: Includes a sample HTML page to display the company collection.
 	- Screenshots for reference: UI - Dashboard - Working Screenshot (UI Dashboard) and Swagger - Working Screenshot.jpg (Swagger UI).
 - Open the GlassLewis_StockExchange.sln solution file.
 - Build the application to ensure no compilation errors.
