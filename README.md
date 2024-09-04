@@ -7,7 +7,7 @@ This project is built using ASP.NET Core Web API designed for managing company r
 - Swagger URL - https://localhost:7068/swagger/index.html
 - UI URL - https://localhost:7068/pages/index.html
 - Implemented Jwt Authentication for authentication purpose
-	- Register User (https://localhost:7068/authorization - POST)
+	- Register User - (https://localhost:7068/authorization - POST)
  	- Login User - (https://localhost:7068/authorization/login - POST)
 - Retrieve All Companies: Obtain a list of all company records (https://localhost:7068/api/company/getCompanyCollection - GET)
 - Retrieve a Company by ID: Fetch a company record using its unique ID (https://localhost:7068/api/company/getCompanyById/{id} - GET)
