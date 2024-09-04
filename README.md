@@ -53,11 +53,12 @@ This project is built using ASP.NET Core Web API designed for managing company r
 
 ![Swagger Image](https://github.com/prakashalamanda/GlassLewis_StockExchange/blob/main/GlassLewis_StockExchange/Swagger%20-%20Working%20Screenshot.jpg)
 
-
 <u><h3>Access the GetCompanyCollection API from UI:</h3></u>
 - Navigate to the url - https://localhost:7068/pages/index.html
 - Paste the Bearer token generated from the Swagger page in the text area
 - Click on 'Get Company details' button to retrieve the company collection
+
+![UI_Image](https://github.com/prakashalamanda/GlassLewis_StockExchange/blob/main/GlassLewis_StockExchange/UI%20-%20Dashboard%20-%20Working%20Screenshot.jpg)
 
 <b>Note - We can also test this from API tools like Postman etc.,</b> 
 
