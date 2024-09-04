@@ -42,6 +42,8 @@ This project is built using ASP.NET Core Web API designed for managing company r
 
 - Run the GlassLewis_StockExchange application. This will open the Swagger UI at https://localhost:7068/swagger/index.html.
 
+- UI dashboard can be accessed via https://localhost:7068/pages/index.html
+
 <u><h3>Access the API from Swagger:</h3></u>
 - In Swagger, start by running the Authorization POST endpoint to register a user:
 	<code>{
