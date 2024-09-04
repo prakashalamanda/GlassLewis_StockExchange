@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Lewis - Company Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .input-container textarea {
+                width: calc(100% - 22px); /* Adjust width to fit container */
+                max-width: 600px;
+                height: 100px;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            .input-container button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-bottom: 20px;
+            }
+
+                .input-container button:hover {
+                    background-color: #0056b3;
+                }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .grid-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+            .grid-item h3 {
+                margin-top: 0;
+                font-size: 1.2em;
+                color: #333;
+            }
+
+            .grid-item p {
+                margin: 5px 0;
+                color: #666;
+            }
+
+        #response {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Company Dashboard</h1>
+        <p>Welcome to the Company Dashboard page. Please enter the bearer token to retrieve the company collection.</p>
+        <div class="input-container">
+            <textarea id="jwtToken" placeholder="Enter JWT Token here..."></textarea>
+            <button id="loadData">Get Company details</button>
+            <a href="/swagger" target="_blank">Go to Swagger Documentation</a>
+        </div>
+        <div id="response"></div>
+        <div class="grid-container" id="gridContainer">
+            <!-- Grid items will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loadData').addEventListener('click', function() {
+            const jwtToken = document.getElementById('jwtToken').value.trim(); // Get the token from the textarea
+            const apiUrl = "https://localhost:7068/api/Company/GetCompanyCollection";
+
+            if (!jwtToken) {
+                document.getElementById('response').innerText = 'Error: JWT Token is required.';
+                return;
+            }
+
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${jwtToken}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const gridContainer = document.getElementById('gridContainer');
+                gridContainer.innerHTML = ''; // Clear any existing content
+                gridContainer.style.display = 'grid'; // Show the grid
+
+                data.forEach(item => {
+                    const gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+
+                    // Build the inner HTML conditionally
+                    let gridContent = `<h3>${item.name || 'N/A'}</h3>`;
+                    if (item.id) gridContent += `<p><strong>ID:</strong> ${item.id}</p>`;
+                    if (item.ticker) gridContent += `<p><strong>Ticker:</strong> ${item.ticker}</p>`;
+                    if (item.exchange) gridContent += `<p><strong>Exchange:</strong> ${item.exchange}</p>`;
+					if (item.isin) gridContent += `<p><strong>ISIN:</strong> ${item.isin}</p>`;
+					if (item.websiteUrl) gridContent += `<p><strong>Website Url:</strong> ${item.websiteUrl}</p>`;
+
+                    gridItem.innerHTML = gridContent;
+
+                    gridContainer.appendChild(gridItem);
+                });
+            })
+            .catch(error => {
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+            });
+        });
+    </script>
+</body>
+</html>
