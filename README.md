@@ -51,7 +51,7 @@ This project is built using ASP.NET Core Web API designed for managing company r
 - Use the GetCompanyByIsin API to fetch a company record by its ISIN.
 - This setup should guide you through running and testing the Company API effectively.
 
-![Swagger Image]([http://url/to/img.png](https://github.com/prakashalamanda/GlassLewis_StockExchange/blob/main/GlassLewis_StockExchange/Swagger%20-%20Working%20Screenshot.jpg))
+![Swagger Image](https://github.com/prakashalamanda/GlassLewis_StockExchange/blob/main/GlassLewis_StockExchange/Swagger%20-%20Working%20Screenshot.jpg)
 
 
 <u><h3>Access the GetCompanyCollection API from UI:</h3></u>
