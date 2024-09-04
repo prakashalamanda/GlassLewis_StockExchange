@@ -18,6 +18,7 @@ This project is built using ASP.NET Core Web API designed for managing company r
   (https://localhost:7068/api/company/createCompany - POST)
 - Update a Company: Modify the details of an existing company (https://localhost:7068/api/company/updateCompany - PUT)
 - This API is built using .NET Core 8, utilizing MS SQL for database operations, and an in-memory database for unit testing.
+- Unit testing has been written using xUnit
 
 <u><h3>Steps to Run the Project:</u></h3>
 - Extract the GlassLewis_StockExchange-main folder. This will have another folder GlassLewis_StockExchange which has the following contents:
